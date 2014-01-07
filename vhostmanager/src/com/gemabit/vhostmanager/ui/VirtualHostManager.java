@@ -4,6 +4,9 @@
  */
 package com.gemabit.vhostmanager.ui;
 
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lsoares
@@ -19,5 +22,8 @@ public class VirtualHostManager {
         window.setResizable(false);
         window.setVisible(true);
         
+        DefaultTableModel model = (DefaultTableModel) window.getjTable1().getModel();
+        
+        model.addRow(new Object[]{"asdsad","asdsad","asdsad"});
     }
 }
