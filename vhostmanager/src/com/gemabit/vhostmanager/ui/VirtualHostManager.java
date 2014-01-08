@@ -18,7 +18,7 @@ public class VirtualHostManager {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        /*
+        
         Main window = new Main();
         window.setResizable(false);
         window.setVisible(true);
@@ -26,9 +26,6 @@ public class VirtualHostManager {
         DefaultTableModel model = (DefaultTableModel) window.getjTable1().getModel();
         
         model.addRow(new Object[]{"asdsad","asdsad","asdsad"});
-        */
         
-        OperatingSystem os = new OperatingSystem();
-        os.detect();
     }
 }
