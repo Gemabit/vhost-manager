@@ -24,7 +24,7 @@ public class VirtualHostManager {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-        /*
+        
         Main window = new Main();
         window.setResizable(false);
         window.setVisible(true);
@@ -32,13 +32,11 @@ public class VirtualHostManager {
         DefaultTableModel model = (DefaultTableModel) window.getjTable1().getModel();
         
         model.addRow(new Object[]{"asdsad","asdsad","asdsad"});
-        */
-                
+        
+        
         HostFile x =  new HostFile("/Users/andre/Java/vhost-manager/vhostmanager/src/Resources/my_text_file.txt");
         x.removeHost("127.0.0.1", "anotherhost.local");
-        
         ArrayList<HashMap> hosts = x.getHosts();
-        
         System.out.print("end");
     }
 }
