@@ -4,7 +4,6 @@
  */
 package com.gemabit.vhostmanager.ui;
 
-import com.gemabit.vhostmanager.utils.OperatingSystem;
 import javax.swing.table.DefaultTableModel;
 
 /**
