@@ -39,11 +39,9 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHost" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHost1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblHost3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cbbSystem" max="32767" attributes="0"/>
                           <Component id="txtUser" max="32767" attributes="0"/>
                           <Component id="txtHost" max="32767" attributes="0"/>
                           <Component id="txtName" max="32767" attributes="0"/>
@@ -81,12 +79,7 @@
                           <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHost2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbbSystem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblHost3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -163,21 +156,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblHost3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="System:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbbSystem">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Linux"/>
-            <StringItem index="1" value="Max"/>
-          </StringArray>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

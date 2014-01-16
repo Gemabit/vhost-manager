@@ -49,8 +49,6 @@ public class NewProfile extends javax.swing.JFrame {
         btnTestConnection = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        lblHost3 = new javax.swing.JLabel();
-        cbbSystem = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,10 +99,6 @@ public class NewProfile extends javax.swing.JFrame {
             }
         });
 
-        lblHost3.setText("System:");
-
-        cbbSystem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Linux", "Max" }));
-
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,11 +117,9 @@ public class NewProfile extends javax.swing.JFrame {
                             .add(lblHost2)
                             .add(jLabel1)
                             .add(lblHost)
-                            .add(lblHost1)
-                            .add(lblHost3))
+                            .add(lblHost1))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(cbbSystem, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(txtUser)
                             .add(txtHost)
                             .add(txtName)
@@ -156,11 +148,7 @@ public class NewProfile extends javax.swing.JFrame {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(txtPassword, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(lblHost2))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(cbbSystem, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(lblHost3))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(39, 39, 39)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(btnCancel)
                             .add(btnAdd)
@@ -243,12 +231,10 @@ public class NewProfile extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnTestConnection;
-    private javax.swing.JComboBox cbbSystem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblHost;
     private javax.swing.JLabel lblHost1;
     private javax.swing.JLabel lblHost2;
-    private javax.swing.JLabel lblHost3;
     private javax.swing.JTextField txtHost;
     private javax.swing.JTextField txtName;
     private javax.swing.JLabel txtNameValidation;
