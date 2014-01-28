@@ -6,7 +6,6 @@ package com.gemabit.vhostmanager.ui;
 
 import com.gemabit.vhostmanager.utils.DBConnection;
 import com.gemabit.vhostmanager.utils.HostFile;
-import com.gemabit.vhostmanager.utils.OperatingSystem;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
