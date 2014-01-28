@@ -8,7 +8,6 @@ package com.gemabit.vhostmanager.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -19,14 +18,27 @@ import java.sql.Statement;
 public class DBConnection {
 
     private Connection conn;
-    private static String dbURL = "jdbc:derby://localhost:1527/vhost-db;create=true;user=root;password=1234";
+    private String queryString = "";
     private static Statement stmt = null;
 
+    public DBConnection() {
+        this.queryString = "jdbc:derby://localhost:1527/vhost-db;create=true;user=root;password=1234";
+    }
+
+    public DBConnection(String queryString) {
+        this.queryString = queryString;
+    }
+
+    /**
+     * Initializes the connection to the derby database
+     *
+     * @return boolean
+     */
     public boolean connect() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
             //Get a connection
-            conn = DriverManager.getConnection(dbURL);
+            conn = DriverManager.getConnection(queryString);
             return true;
         } catch (Exception except) {
             except.printStackTrace();
@@ -34,32 +46,48 @@ public class DBConnection {
         }
     }
 
-    public void close() {
+    /**
+     * Closes the database connection
+     *
+     * @return boolean
+     */
+    public boolean close() {
         try {
             if (stmt != null) {
                 stmt.close();
             }
             if (conn != null) {
-                DriverManager.getConnection(dbURL + ";shutdown=true");
+                DriverManager.getConnection(queryString + ";shutdown=true");
                 conn.close();
             }
+
+            return true;
         } catch (SQLException sqlExcept) {
-            //sqlExcept.printStackTrace();
+            sqlExcept.printStackTrace();
+            return false;
         }
     }
 
+    /**
+     * Executes a query and returns it's data (SELECT queries)
+     *
+     * @param query
+     * @return ResultSet
+     * @throws SQLException
+     */
     public ResultSet executeQuery(String query) throws SQLException {
-        try {
-            stmt = conn.createStatement();
-            ResultSet results = stmt.executeQuery(query);
-            //results.close();
-            //stmt.close();
-            return results;
-        } catch (SQLException sqlExcept) {
-            throw new SQLException(sqlExcept.getMessage());
-        }
+        stmt = conn.createStatement();
+        ResultSet results = stmt.executeQuery(query);
+        //results.close();
+        //stmt.close();
+        return results;
     }
 
+    /**
+     * Executes a query (INSERT, UPDATE, DELETE queries)
+     * @param query
+     * @return boolean
+     */
     public boolean execute(String query) {
         try {
             stmt = conn.createStatement();
