@@ -3,8 +3,8 @@ package com.gemabit.vhostmanager.utils;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
-import com.jcraft.jsch.UserInfo;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -17,22 +17,42 @@ public class SSHConnection {
     private int port;
     private int lastExitStatus;
 
+    /**
+     * Returns the host name
+     * @return String
+     */
     public String getHost() {
         return host;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
+    
+    /**
+     * Returns the port that's being used
+     * @return int
+     */
     public int getPort() {
         return port;
     }
-
+    
+    /**
+     * Sets the port to used
+     * @param port 
+     */
+    public void setPort(int port) {
+        this.port = port;
+    }
+    
+    /**
+     * Returns the user name
+     * @return String
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     * Returns the last exit status
+     * @return int
+     */
     public int getLastExitStatus() {
         return lastExitStatus;
     }
@@ -51,6 +71,10 @@ public class SSHConnection {
         this.port = port;
     }
 
+    /**
+     * Initializes the connection to the host
+     * @return boolean
+     */
     public boolean connect() {
         JSch jsch = new JSch();
         //Set StrictHostKeyChecking property to no to avoid UnknownHostKey issue
@@ -62,13 +86,18 @@ public class SSHConnection {
             session.setConfig(config);
             session.connect();
             return true;
-        } catch (Exception e) {
+        } catch (JSchException e) {
             System.err.println("Erro:" + e.getMessage());
             return false;
         }
     }
 
-    public String exec(String command) {
+    /**
+     * Executes a command, and returns it's response
+     * @param command
+     * @return String
+     */
+    public String execute(String command) {
         String response = new String();
         try {
             Channel channel = session.openChannel("exec");
@@ -116,9 +145,18 @@ public class SSHConnection {
         return response;
     }
 
-    public void close() {
-        if (session != null && session.isConnected()) {
-            session.disconnect();
+    /**
+     * Closes the ssh connection
+     * @return boolean
+     */
+    public boolean close() {
+        try {
+            if (session != null && session.isConnected()) {
+                session.disconnect();
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 }
