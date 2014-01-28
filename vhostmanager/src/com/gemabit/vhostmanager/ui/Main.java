@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class Main extends javax.swing.JFrame {
 
     private DefaultTableModel model;
+
     /**
      * Creates new form Main
      */
@@ -34,14 +35,17 @@ public class Main extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tableVirtualHosts = new javax.swing.JTable();
-        btnRemoveRow = new javax.swing.JButton();
-        btnAddRow = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        btnAddProfile = new javax.swing.JButton();
+        btnRemoveHost = new javax.swing.JButton();
+        btnAddHost = new javax.swing.JButton();
+        cbbProfiles = new javax.swing.JComboBox();
+        btnNewProfile = new javax.swing.JButton();
+        btnConnectionSettings = new javax.swing.JButton();
+        btnFileSettings = new javax.swing.JButton();
+        btnEditHost = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        vHostPreferencesMenu = new javax.swing.JMenuItem();
+        vHostExitMenu = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,48 +75,69 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableVirtualHosts);
 
-        btnRemoveRow.setText("-");
-        btnRemoveRow.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoveHost.setText("Remove Host");
+        btnRemoveHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveRowActionPerformed(evt);
+                btnRemoveHostActionPerformed(evt);
             }
         });
 
-        btnAddRow.setText("+");
-        btnAddRow.addActionListener(new java.awt.event.ActionListener() {
+        btnAddHost.setText("Add Host");
+        btnAddHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddRowActionPerformed(evt);
+                btnAddHostActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbProfiles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnAddProfile.setText("+");
-        btnAddProfile.addActionListener(new java.awt.event.ActionListener() {
+        btnNewProfile.setText("New Profile");
+        btnNewProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProfileActionPerformed(evt);
+                btnNewProfileActionPerformed(evt);
+            }
+        });
+
+        btnConnectionSettings.setText("Connection Settings");
+        btnConnectionSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConnectionSettingsActionPerformed(evt);
+            }
+        });
+
+        btnFileSettings.setText("File Settings");
+        btnFileSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFileSettingsActionPerformed(evt);
+            }
+        });
+
+        btnEditHost.setText("Edit Host");
+        btnEditHost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditHostActionPerformed(evt);
             }
         });
 
         jMenu1.setText("vHost");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Preferences");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        vHostPreferencesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        vHostPreferencesMenu.setText("Preferences");
+        vHostPreferencesMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                vHostPreferencesMenuActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(vHostPreferencesMenu);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Exit");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        vHostExitMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        vHostExitMenu.setText("Exit");
+        vHostExitMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                vHostExitMenuActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(vHostExitMenu);
 
         jMenuBar1.add(jMenu1);
 
@@ -128,17 +153,22 @@ public class Main extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                     .add(layout.createSequentialGroup()
                         .add(0, 0, Short.MAX_VALUE)
-                        .add(btnAddRow, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(btnEditHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(btnRemoveRow, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(btnAddHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(btnRemoveHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
-                        .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 150, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(cbbProfiles, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 150, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(btnNewProfile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(btnAddProfile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(0, 0, Short.MAX_VALUE)))
+                        .add(btnConnectionSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 160, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(btnFileSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -146,42 +176,57 @@ public class Main extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(btnAddProfile)
-                    .add(jComboBox1))
-                .add(18, 18, Short.MAX_VALUE)
+                    .add(btnNewProfile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(cbbProfiles, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .add(btnConnectionSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(btnFileSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 261, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(btnRemoveRow)
-                    .add(btnAddRow))
-                .addContainerGap())
+                    .add(btnAddHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(btnRemoveHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(btnEditHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void vHostPreferencesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vHostPreferencesMenuActionPerformed
+        PathConfigs pathConfigsWindow = new PathConfigs();
+
+    }//GEN-LAST:event_vHostPreferencesMenuActionPerformed
+
+    private void vHostExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vHostExitMenuActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void btnRemoveRowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRowActionPerformed
-        model.removeRow(tableVirtualHosts.getSelectedRow());     
-    }//GEN-LAST:event_btnRemoveRowActionPerformed
+    }//GEN-LAST:event_vHostExitMenuActionPerformed
 
-    private void btnAddRowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRowActionPerformed
-       model.addRow(new Object[]{"asdsad","asdsad","asdsad"});
-    }//GEN-LAST:event_btnAddRowActionPerformed
+    private void btnRemoveHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveHostActionPerformed
+        model.removeRow(tableVirtualHosts.getSelectedRow());
+    }//GEN-LAST:event_btnRemoveHostActionPerformed
 
-    private void btnAddProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProfileActionPerformed
+    private void btnAddHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHostActionPerformed
+        model.addRow(new Object[]{"asdsad", "asdsad", "asdsad"});
+    }//GEN-LAST:event_btnAddHostActionPerformed
+
+    private void btnNewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProfileActionPerformed
         NewProfile profileWindow = new NewProfile();
-    }//GEN-LAST:event_btnAddProfileActionPerformed
+    }//GEN-LAST:event_btnNewProfileActionPerformed
+
+    private void btnConnectionSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectionSettingsActionPerformed
+        NewProfile profileWindow = new NewProfile(cbbProfiles.getSelectedIndex());
+    }//GEN-LAST:event_btnConnectionSettingsActionPerformed
+
+    private void btnFileSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileSettingsActionPerformed
+        PathConfigs pathConfigWindow = new PathConfigs();
+    }//GEN-LAST:event_btnFileSettingsActionPerformed
+
+    private void btnEditHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditHostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditHostActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,19 +266,22 @@ public class Main extends javax.swing.JFrame {
     public JTable getjTable1() {
         return tableVirtualHosts;
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddProfile;
-    private javax.swing.JButton btnAddRow;
-    private javax.swing.JButton btnRemoveRow;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton btnAddHost;
+    private javax.swing.JButton btnConnectionSettings;
+    private javax.swing.JButton btnEditHost;
+    private javax.swing.JButton btnFileSettings;
+    private javax.swing.JButton btnNewProfile;
+    private javax.swing.JButton btnRemoveHost;
+    private javax.swing.JComboBox cbbProfiles;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableVirtualHosts;
+    private javax.swing.JMenuItem vHostExitMenu;
+    private javax.swing.JMenuItem vHostPreferencesMenu;
     // End of variables declaration//GEN-END:variables
 }

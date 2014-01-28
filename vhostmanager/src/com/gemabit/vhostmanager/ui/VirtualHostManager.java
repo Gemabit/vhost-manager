@@ -42,6 +42,7 @@ public class VirtualHostManager {
          x.removeHost("127.0.0.1", "anotherhost.local");
          ArrayList<HashMap> hosts = x.getHosts();
          System.out.print("end");*/
+        /*
         ResultSet results;
         DBConnection con = new DBConnection();
         con.connect();
@@ -57,6 +58,6 @@ public class VirtualHostManager {
         } catch (SQLException ex) {
             Logger.getLogger(VirtualHostManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        con.close();
+        con.close();*/
     }
 }
