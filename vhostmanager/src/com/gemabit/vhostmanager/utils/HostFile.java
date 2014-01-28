@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author andre
+ * @todo remove this file
  */
 public class HostFile {
 
