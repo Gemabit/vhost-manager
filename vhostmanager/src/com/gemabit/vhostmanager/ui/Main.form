@@ -96,7 +96,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnNewProfile" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="cbbProfiles" alignment="3" pref="30" max="32767" attributes="0"/>
+                  <Component id="cbbProfiles" alignment="3" max="32767" attributes="0"/>
                   <Component id="btnConnectionSettings" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnFileSettings" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>

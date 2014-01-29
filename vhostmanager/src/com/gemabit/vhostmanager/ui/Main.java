@@ -205,7 +205,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_vHostExitMenuActionPerformed
 
     private void btnRemoveHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveHostActionPerformed
-        model.removeRow(tableVirtualHosts.getSelectedRow());
+        if (tableVirtualHosts.getSelectedRow() >= 0) {
+            model.removeRow(tableVirtualHosts.getSelectedRow());
+        }
     }//GEN-LAST:event_btnRemoveHostActionPerformed
 
     private void btnAddHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHostActionPerformed
