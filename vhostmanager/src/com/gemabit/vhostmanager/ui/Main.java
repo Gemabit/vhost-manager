@@ -207,6 +207,7 @@ public class Main extends javax.swing.JFrame {
     private void btnRemoveHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveHostActionPerformed
         if (tableVirtualHosts.getSelectedRow() >= 0) {
             model.removeRow(tableVirtualHosts.getSelectedRow());
+            // TODO remove host from database
         }
     }//GEN-LAST:event_btnRemoveHostActionPerformed
 
