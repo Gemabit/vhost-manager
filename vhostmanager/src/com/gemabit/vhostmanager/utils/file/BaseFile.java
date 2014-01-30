@@ -22,16 +22,21 @@ package com.gemabit.vhostmanager.utils.file;
 
 import com.gemabit.vhostmanager.utils.Attributes;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 abstract class BaseFile {
 
+    /**
+     * File object holder
+     */
     protected File file;
-
+    
     /**
      * Creates a BaseFile Object
      *
@@ -59,13 +64,27 @@ abstract class BaseFile {
     }
 
     /**
+     * Loads the document data into the object
+     *
+     * @return boolean
+     */
+    abstract public boolean load();
+
+    /**
+     * Saves the data into the file
+     *
+     * @return boolean
+     */
+    abstract public boolean save();
+
+    /**
      * Reads the file
      *
      * @return ArrayList<String>
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public ArrayList<String> read() throws FileNotFoundException, IOException {
+    protected ArrayList<String> read() throws FileNotFoundException, IOException {
         FileReader fileReader = new FileReader(this.file);
         ArrayList<String> lines;
 
@@ -86,7 +105,19 @@ abstract class BaseFile {
      * @param lines
      * @return boolean
      */
-    abstract public boolean write(ArrayList<String> lines);
+    protected boolean write(ArrayList<String> lines) {
+        try {
+            FileWriter fileWriter = new FileWriter(this.file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (String line : lines) {
+                bufferedWriter.append("\n".concat(line));
+            }
+            bufferedWriter.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
 
     /**
      * Parses the ArrayList to a Attribute class
@@ -106,7 +137,7 @@ abstract class BaseFile {
         String result = new String();
 
         for (String line : lines) {
-            result.concat("\n").concat(line);
+            result = result.concat("\n").concat(line);
         }
 
         return result;
