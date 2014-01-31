@@ -1,4 +1,4 @@
-package com.gemabit.vhostmanager.manager;
+package com.gemabit.vhostmanager;
 
 import java.util.ArrayList;
 
