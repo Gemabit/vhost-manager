@@ -6,8 +6,6 @@ package com.gemabit.vhostmanager.ui;
 
 import com.gemabit.vhostmanager.Profile;
 import java.util.ArrayList;
-import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -32,7 +30,7 @@ public class Main extends javax.swing.JFrame {
     
     private void addProfilesToCB(ArrayList<String> listOfProfiles) {
         
-        Vector comboBoxItems = new Vector();
+        cbbProfiles.removeAllItems();
         
         for (String profileName : listOfProfiles) {
             cbbProfiles.addItem(profileName);
@@ -57,6 +55,8 @@ public class Main extends javax.swing.JFrame {
         btnConnectionSettings = new javax.swing.JButton();
         btnFileSettings = new javax.swing.JButton();
         btnEditHost = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtConsole = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         vHostPreferencesMenu = new javax.swing.JMenuItem();
@@ -132,6 +132,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        txtConsole.setEditable(false);
+        txtConsole.setColumns(20);
+        txtConsole.setRows(5);
+        jScrollPane3.setViewportView(txtConsole);
+
         jMenu1.setText("vHost");
 
         vHostPreferencesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
@@ -181,7 +186,8 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(btnConnectionSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 160, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(btnFileSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(btnFileSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jScrollPane3))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -194,13 +200,15 @@ public class Main extends javax.swing.JFrame {
                     .add(btnConnectionSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(btnFileSettings, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 261, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 228, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 178, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(btnAddHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(btnRemoveHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(btnEditHost, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -227,11 +235,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddHostActionPerformed
 
     private void btnNewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProfileActionPerformed
-        NewProfile profileWindow = new NewProfile();
+        NewProfileDialog profileWindow = new NewProfileDialog(this, true);    
+        addProfilesToCB(Profile.getProfiles());
     }//GEN-LAST:event_btnNewProfileActionPerformed
 
     private void btnConnectionSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectionSettingsActionPerformed
-        NewProfile profileWindow = new NewProfile(cbbProfiles.getSelectedIndex());
+        
     }//GEN-LAST:event_btnConnectionSettingsActionPerformed
 
     private void btnFileSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileSettingsActionPerformed
@@ -259,7 +268,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tableVirtualHosts;
+    private javax.swing.JTextArea txtConsole;
     private javax.swing.JMenuItem vHostExitMenu;
     private javax.swing.JMenuItem vHostPreferencesMenu;
     // End of variables declaration//GEN-END:variables
