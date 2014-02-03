@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
-public class Profile {
+public final class Profile {
     
     public static String PROFILEPATH = "/Resources/profiles/";
     
@@ -42,7 +42,7 @@ public class Profile {
      * 
      * @param name name of the profile   
      */
-    public Profile(String name) {
+    public Profile(String name) throws Exception {
         this.name = name;
         loadProfile();
     }
@@ -64,14 +64,14 @@ public class Profile {
         this.hostPath   = "";
         this.vHostPath  = "";
         
-        saveProvile();
+        saveProfile();
     }
     /**
      * Initialize the profile attributes by loading them from a properties file.
      * 
      * @return boolean true, if the profile was successfully loaded, otherwise false 
      */
-    private boolean loadProfile()
+    private boolean loadProfile() throws Exception
     {
         Properties properties = PropertiesHandler.loadProperties(PROFILEPATH, name);
         
@@ -84,7 +84,7 @@ public class Profile {
             vHostPath   = properties.getProperty("vHostPath");
         } catch (Exception e) {
             System.err.println("Error loading the profile " + name + ", " + e.getMessage());
-            return false;
+            throw new Exception();
         }     
         return true;
     }
@@ -94,7 +94,7 @@ public class Profile {
      * 
      * @return boolean true, if the profile was successfully stored, otherwise false 
      */
-    public boolean saveProvile()
+    public boolean saveProfile()
     {
         HashMap<String,String> propertiesMap = new HashMap<>();
         propertiesMap.put("name", name);

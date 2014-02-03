@@ -15,6 +15,9 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
  */
 public class NewProfileDialog extends javax.swing.JDialog {
 
+    private Profile profile;
+    private boolean editing = false;
+    
     /**
      * Creates new form NewProfileDialog
      */
@@ -22,6 +25,26 @@ public class NewProfileDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setWindowProperties();
+    }
+    
+    public NewProfileDialog(String name, java.awt.Frame parent, boolean modal){
+        super(parent,modal);
+        initComponents();
+        //setWindowProperties();
+        
+        System.err.println(name);
+        editing = true;
+        
+        try {
+            profile = new Profile(name);
+            txtName.setText(profile.getName());
+            txtHost.setText(profile.getHost());
+            txtName.setText(profile.getName());
+        } catch (Exception e) {
+            this.dispose();
+        }
+        
+        
     }
     
     private void setWindowProperties() {
@@ -185,9 +208,17 @@ public class NewProfileDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnTestConnectionActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        char[] pass = txtPassword.getPassword();
-        String passString = new String(pass);
-        new Profile(txtName.getText(), txtHost.getText(), txtUser.getText(), passString);
+        
+        if (!editing) {
+            char[] pass = txtPassword.getPassword();
+            String passString = new String(pass);
+            new Profile(txtName.getText(), txtHost.getText(), txtUser.getText(), passString);        
+        } else {
+            profile.setName(txtName.getText());
+            profile.setHost(txtHost.getText());
+            profile.setUser(txtUser.getText());
+            profile.saveProfile();
+        }
         this.dispose();
     }//GEN-LAST:event_btnAddActionPerformed
 

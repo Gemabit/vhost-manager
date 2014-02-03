@@ -241,6 +241,9 @@ public class Main extends javax.swing.JFrame {
 
     private void btnConnectionSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectionSettingsActionPerformed
         
+        if(cbbProfiles.getSelectedIndex() != -1) {
+            NewProfileDialog tmpProfileDialog = new NewProfileDialog((String) cbbProfiles.getSelectedItem(), this, true);
+        }
     }//GEN-LAST:event_btnConnectionSettingsActionPerformed
 
     private void btnFileSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileSettingsActionPerformed
