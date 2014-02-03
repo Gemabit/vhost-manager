@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class Profile {
     
-    public static String PROFILEPATH = "/Users/luis/Desktop/Code/Java/vhost-manager/vhostmanager/src/Resources/profiles";
+    public static String PROFILEPATH = "/Resources/profiles";
     private String name;
     private String host;
     private String user;

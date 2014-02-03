@@ -43,7 +43,7 @@ public class PropertiesLoader {
     private ArrayList<String> getFilenamesFromFolder(String folderPath)
     {
         ArrayList<String> tmpFileNames = new ArrayList<>();
-        File[] files = new File(folderPath).listFiles();
+        File[] files = new File(getClass().getResource(folderPath).getPath()).listFiles();
         
         for(File file : files) {
             if (file.isFile()) {
