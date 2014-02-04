@@ -22,31 +22,42 @@ package com.gemabit.vhostmanager;
 
 import com.gemabit.vhostmanager.ui.Main;
 import com.gemabit.vhostmanager.utils.file.HostFile;
+import com.gemabit.vhostmanager.utils.file.VirtualHostFile;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class VHostManager {
-    
+
     public static void main(String args[]) {
-        
-        //start main window
+
+            //start main window
         //Main mainWindow = new Main();
-        try {
-            //HostFile hostFile = new HostFile("c:\\Windows\\System32\\drivers\\etc\\hosts");
-            HostFile hostFile = new HostFile("/Users/andre/Java/vhost-manager/vhostmanager/src/Resources/my_text_file.txt");
-            hostFile.load();
-            
-            hostFile.addHost("maria.local", "127.0.0.1");
-            
-            hostFile.save();
             /*
-            HostFile x =  new HostFile("/Users/andre/Java/vhost-manager/vhostmanager/src/Resources/my_text_file.txt");
-            x.removeHost("127.0.0.1", "anotherhost.local");
-            ArrayList<HashMap> hosts = x.getHosts();
-            System.out.print("end");*/
+         try {
+         //HostFile hostFile = new HostFile("c:\\Windows\\System32\\drivers\\etc\\hosts");
+         HostFile hostFile = new HostFile("/Users/andre/Java/vhost-manager/vhostmanager/src/Resources/my_text_file.txt");
+         hostFile.load();
+            
+         hostFile.addHost("maria.local", "127.0.0.1");
+            
+         hostFile.save();
+         } catch (FileNotFoundException ex) {
+         Logger.getLogger(VHostManager.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         //*/
+        
+        try {
+            VirtualHostFile file = new VirtualHostFile("/Users/andre/Java/vhost-manager/vhostmanager/src/Resources/host_test.txt");
+            
+            file.load();
+            file.setServerName("croco.loko");
+            file.setLocation("/var/www/totodile");
+            file.setIndexes(false);
+            file.save();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(VHostManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 }
