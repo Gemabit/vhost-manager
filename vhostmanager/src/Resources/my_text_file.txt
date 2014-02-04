@@ -1,3 +1,33 @@
-#blablabla
 
-#next goes here
+
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+fe80::1%lo0	localhost
+
+127.0.0.1	form.partner.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	api.test.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	bo.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	repos	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	cm.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	repos.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	test.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	api.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	youquest.me	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	docs.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	opencart.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	events.easyp.eu	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	site.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	series.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	api-easypay.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	form.easyp.eu	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	hs.local	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1	plugins	# MAMP PRO - Do NOT remove this entry!
+127.0.0.1 maria.local
+127.0.0.1 maria.local

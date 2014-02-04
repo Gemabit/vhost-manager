@@ -115,7 +115,7 @@ public class Main extends javax.swing.JFrame {
         txtConsole.setRows(5);
         jScrollPane3.setViewportView(txtConsole);
 
-        jTabbedPane1.addTab("tab2", jTabbedPane2);
+        jTabbedPane1.addTab("Apache Configs", jTabbedPane2);
 
         tableVirtualHosts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,8 +142,8 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableVirtualHosts);
 
-        jTabbedPane1.addTab("tab1", jScrollPane1);
-        jTabbedPane1.addTab("tab3", jTabbedPane3);
+        jTabbedPane1.addTab("Virtual Hosts", jScrollPane1);
+        jTabbedPane1.addTab("Other", jTabbedPane3);
 
         jMenu1.setText("vHost");
 
